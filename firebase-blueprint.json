@@ -1,0 +1,47 @@
+{
+  "entities": {
+    "Web3Project": {
+      "title": "Web3 Project",
+      "description": "A Web3 project opportunity like airdrop or testnet",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string", "enum": ["Airdrop", "Testnet", "NFT", "DeFi"] },
+        "blockchain": { "type": "string" },
+        "status": { "type": "string", "enum": ["Active", "Ended"] },
+        "reward": { "type": "string" },
+        "steps": { "type": "array", "items": { "type": "string" } },
+        "aiSummary": { "type": "string" },
+        "trustScore": { "type": "number" },
+        "scamSignals": { "type": "array", "items": { "type": "string" } },
+        "createdAt": { "type": "number" },
+        "bookmarksCount": { "type": "number" }
+      },
+      "required": ["name", "description", "category", "blockchain", "status", "reward", "steps", "createdAt"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "User profile and tracking data",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "bookmarks": { "type": "array", "items": { "type": "string" } },
+        "trackedProjects": { "type": "array", "items": { "type": "object" } }
+      },
+      "required": ["uid", "email"]
+    }
+  },
+  "firestore": {
+    "/projects/{projectId}": {
+      "schema": "Web3Project",
+      "description": "Collection of Web3 projects"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Collection of user profiles"
+    }
+  }
+}
