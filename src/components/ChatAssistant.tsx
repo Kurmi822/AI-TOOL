@@ -9,7 +9,7 @@ import { collection, getDocs, limit, query } from 'firebase/firestore';
 export const ChatAssistant = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', content: "Hello! I'm AetherAI. How can I help you discover Web3 opportunities today?", timestamp: Date.now() }
+    { role: 'model', content: "Hello! I'm your Shelby Ecosystem Copilot. How can I help you find and track vetted Web3 opportunities today?", timestamp: Date.now() }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -59,36 +59,36 @@ export const ChatAssistant = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            initial={{ opacity: 0, scale: 0.95, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="absolute bottom-20 right-0 w-[350px] sm:w-[400px] h-[500px] bg-black/80 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
+            exit={{ opacity: 0, scale: 0.95, y: 10 }}
+            className="absolute bottom-20 right-0 w-[350px] sm:w-[450px] h-[600px] bg-[#050505]/90 backdrop-blur-3xl border border-white/10 rounded-sm shadow-2xl flex flex-col overflow-hidden"
           >
-            <div className="p-4 border-b border-white/10 flex items-center justify-between bg-white/5">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
-                  <Bot className="w-5 h-5 text-white" />
+            <div className="p-6 border-b border-white/10 flex items-center justify-between bg-white/[0.02]">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 bg-white flex items-center justify-center">
+                  <Bot className="w-5 h-5 text-black" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white">AetherAI Assistant</h3>
-                  <div className="flex items-center gap-1">
+                  <h3 className="text-[10px] font-black text-white uppercase tracking-[0.3em]">Shelby Intelligence</h3>
+                  <div className="flex items-center gap-2 mt-1">
                     <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-                    <span className="text-[10px] text-white/40 font-medium uppercase tracking-wider">Online</span>
+                    <span className="text-[9px] text-white/20 font-bold uppercase tracking-widest">Protocol Active</span>
                   </div>
                 </div>
               </div>
-              <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-white/10 rounded-full transition-colors">
-                <X className="w-4 h-4 text-white/60" />
+              <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-white/10 transition-colors">
+                <X className="w-4 h-4 text-white/40" />
               </button>
             </div>
 
-            <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4">
+            <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide">
               {messages.map((msg, i) => (
                 <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] p-3 rounded-2xl text-sm ${
+                  <div className={`max-w-[85%] p-5 text-[11px] font-medium leading-relaxed uppercase tracking-wider ${
                     msg.role === 'user' 
-                      ? 'bg-blue-600 text-white rounded-tr-none' 
-                      : 'bg-white/10 text-white/80 rounded-tl-none border border-white/10'
+                      ? 'bg-blue-600 text-white border border-blue-500/50' 
+                      : 'bg-white/[0.03] text-white/80 border border-white/5 font-mono'
                   }`}>
                     {msg.content}
                   </div>
@@ -96,30 +96,34 @@ export const ChatAssistant = () => {
               ))}
               {isLoading && (
                 <div className="flex justify-start">
-                  <div className="bg-white/10 p-3 rounded-2xl rounded-tl-none border border-white/10">
-                    <Loader2 className="w-4 h-4 text-white/40 animate-spin" />
+                  <div className="bg-white/[0.03] p-5 border border-white/5">
+                    <Loader2 className="w-4 h-4 text-blue-500 animate-spin" />
                   </div>
                 </div>
               )}
             </div>
 
-            <div className="p-4 border-t border-white/10 bg-white/5">
-              <div className="relative">
+            <div className="p-6 border-t border-white/10 bg-white/[0.02]">
+              <div className="relative group">
                 <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Ask about airdrops..."
-                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-blue-500/50 transition-colors pr-12"
+                  placeholder="Query Shelby Index..."
+                  className="w-full bg-black border border-white/10 px-6 py-4 text-[11px] text-white placeholder:text-white/10 focus:outline-none focus:border-blue-500 transition-all uppercase tracking-widest pr-16"
                 />
                 <button
                   onClick={handleSend}
                   disabled={isLoading}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-500 transition-colors disabled:opacity-50"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 p-3 text-white hover:text-blue-500 transition-colors disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                 </button>
+              </div>
+              <div className="mt-4 flex items-center justify-between">
+                <div className="text-[8px] text-white/10 font-bold uppercase tracking-widest">Secure Channel</div>
+                <div className="text-[8px] text-white/10 font-bold uppercase tracking-widest">v2.4.0-AI</div>
               </div>
             </div>
           </motion.div>
@@ -130,9 +134,10 @@ export const ChatAssistant = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20 group"
+        className="w-16 h-16 bg-white text-black rounded-sm flex items-center justify-center shadow-2xl group hover:bg-blue-500 hover:text-white transition-colors duration-500"
       >
-        {isOpen ? <X className="w-6 h-6 text-white" /> : <MessageSquare className="w-6 h-6 text-white group-hover:rotate-12 transition-transform" />}
+        {isOpen ? <X className="w-6 h-6" /> : <MessageSquare className="w-6 h-6 group-hover:rotate-12 transition-transform" />}
+        <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 border-2 border-black rounded-full" />
       </motion.button>
     </div>
   );

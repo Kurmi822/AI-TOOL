@@ -12,6 +12,12 @@ export interface Web3Project {
   scamSignals?: string[];
   createdAt: number;
   bookmarksCount: number;
+  shelbyVerification?: {
+    isVerified: boolean;
+    verifiedAt: number;
+    auditReport: string;
+    score: number;
+  };
 }
 
 export interface UserProfile {
@@ -20,6 +26,7 @@ export interface UserProfile {
   displayName: string;
   bookmarks: string[]; // Array of project IDs
   trackedProjects: { projectId: string; progress: number }[];
+  walletAddress?: string;
 }
 
 export interface ChatMessage {

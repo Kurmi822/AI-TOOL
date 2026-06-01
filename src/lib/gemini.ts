@@ -25,6 +25,27 @@ export async function summarizeProject(project: Partial<Web3Project>) {
   return JSON.parse(response.text || "{}");
 }
 
+export async function performShelbyVerification(project: Web3Project) {
+  const response = await ai.models.generateContent({
+    model: "gemini-3-flash-preview",
+    contents: `Perform a 'Shelby Infrastructure' data verification for this Web3 project. 
+    Verify the legitimacy, check for common red flags, and provide an audit report.
+    Project: ${JSON.stringify(project)}
+    
+    Return JSON:
+    {
+      "isVerified": true/false,
+      "auditReport": "...",
+      "score": 0-100
+    }`,
+    config: {
+      responseMimeType: "application/json"
+    }
+  });
+
+  return JSON.parse(response.text || "{}");
+}
+
 export async function getAiAssistantResponse(message: string, context: Web3Project[]) {
   const response = await ai.models.generateContent({
     model: "gemini-3-flash-preview",

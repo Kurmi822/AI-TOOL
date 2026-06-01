@@ -1,22 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@1,300;1,400&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-ink: #0A0A0A;
+  --color-paper: #F5F5F4;
+  --color-line: rgba(255, 255, 255, 0.1);
+  --color-accent: #3B82F6;
 }
 
 body {
-  background-color: #000;
-  color: #fff;
+  background-color: #050505;
+  color: #E5E7EB;
   -webkit-font-smoothing: antialiased;
+  font-family: var(--font-sans);
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Theme transition */
+* {
+  transition: border-color 0.2s ease, background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease-in-out;
+}
+
+/* Light Mode Overrides */
+body.light {
+  background-color: #FAFAF9 !important;
+  color: #1C1917 !important;
+}
+
+body.light .tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px) !important;
+}
+
+body.light .bg-[#050505],
+body.light .bg-black,
+body.light bg-\[\#050505\],
+body.light bg-black {
+  background-color: #FAFAF9 !important;
+}
+
+body.light .bg-[#0A0A0A],
+body.light .bg-white\/\[0\.01\],
+body.light .bg-white\/\[0\.02\],
+body.light .bg-white\/\[0\.03\],
+body.light .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+  border-color: rgba(0, 0, 0, 0.07) !important;
+}
+
+body.light .bg-white\/\[0\.05\] {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+body.light .text-white {
+  color: #1C1917 !important;
+}
+
+body.light .text-white\/10 {
+  color: rgba(0, 0, 0, 0.15) !important;
+}
+
+body.light .text-white\/20 {
+  color: rgba(0, 0, 0, 0.35) !important;
+}
+
+body.light .text-white\/40 {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+body.light .text-white\/60 {
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+
+body.light .text-white\/80 {
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
+body.light .border-white\/5,
+body.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light .border-white\/20,
+body.light .border-white\/30 {
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+body.light input,
+body.light select {
+  background-color: #FFFFFF !important;
+  color: #1C1917 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light input::placeholder {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+body.light option,
+body.light select option {
+  background-color: #FFFFFF !important;
+  color: #1C1917 !important;
+}
+
+body.light nav {
+  background-color: rgba(250, 250, 249, 0.85) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light .glass {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(20px);
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light .micro-label {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Light Mode Modal Overrides */
+body.light .body-theme-target {
+  background-color: #FFFFFF !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+body.light .body-theme-target h2,
+body.light .body-theme-target h3,
+body.light .body-theme-target h4,
+body.light .body-theme-target span,
+body.light .body-theme-target button {
+  color: #1C1917 !important;
+}
+
+body.light .body-theme-target .text-white\/30 {
+  color: rgba(0, 0, 0, 0.45) !important;
+}
+
+body.light .body-theme-target .text-white\/40 {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+body.light .body-theme-target .text-white\/60 {
+  color: rgba(0, 0, 0, 0.65) !important;
+}
+
+body.light .relative.flex.items-center.justify-center.my-6 span {
+  background-color: #FFFFFF !important;
+}
+
+/* Technical Grid Background */
+.tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: #050505;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -30,7 +181,26 @@ body {
 
 /* Glassmorphism Helper */
 .glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Data Row Hover */
+.data-row {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.data-row:hover {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Micro Labels */
+.micro-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
 }

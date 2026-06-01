@@ -16,7 +16,16 @@
         "trustScore": { "type": "number" },
         "scamSignals": { "type": "array", "items": { "type": "string" } },
         "createdAt": { "type": "number" },
-        "bookmarksCount": { "type": "number" }
+        "bookmarksCount": { "type": "number" },
+        "shelbyVerification": {
+          "type": "object",
+          "properties": {
+            "isVerified": { "type": "boolean" },
+            "verifiedAt": { "type": "number" },
+            "auditReport": { "type": "string" },
+            "score": { "type": "number" }
+          }
+        }
       },
       "required": ["name", "description", "category", "blockchain", "status", "reward", "steps", "createdAt"]
     },

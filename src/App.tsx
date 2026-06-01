@@ -8,7 +8,13 @@ import { ProjectDetail } from './pages/ProjectDetail';
 import { Dashboard } from './pages/Dashboard';
 import { ChatAssistant } from './components/ChatAssistant';
 
+import { seedFirestore } from './lib/seedData';
+
 export default function App() {
+  React.useEffect(() => {
+    seedFirestore();
+  }, []);
+
   return (
     <AuthProvider>
       <Router>

@@ -1,5 +1,8 @@
 {
-  "name": "AetherAI",
-  "description": "AI-powered Web3 discovery platform for airdrops, testnets, and NFT opportunities.",
-  "requestFramePermissions": []
+  "name": "Aether x Shelby",
+  "description": "Secure Web3 project discovery and tracking tool built for the Shelby Team, powered by Shelby data verification infrastructure.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
