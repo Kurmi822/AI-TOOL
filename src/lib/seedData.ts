@@ -355,6 +355,60 @@ export const dummyProjects: Web3Project[] = [
     scamSignals: ["Invite code system is restricted. Only use codes shared inside the official Karak Discord."],
     createdAt: 1717056000000,
     bookmarksCount: 2890
+  },
+  {
+    id: "discord-roles",
+    name: "Discord Guild Roles Elite",
+    description: "Acquire exclusive guild roles through Guild.xyz and Discord verification quests to unlock private alpha channels and high-tier community status.",
+    category: "Airdrop",
+    blockchain: "Ethereum",
+    status: "Active",
+    reward: "VIP Discord Role & Whitelist Allocation",
+    steps: [
+      "Navigate to the official Guild.xyz validation portal",
+      "Connect your Web3 Metamask wallet and verify signature",
+      "Join the official project Discord server",
+      "Complete specified social engagement and token holding quests",
+      "Claim your verified role badge inside Discord"
+    ],
+    aiSummary: "Exclusive community and guild roles are the ultimate gateway for Web4 and Web3 projects to target real, high-value contributors. Unlocking locked roles maximizes candidate eligibility for potential network distribution.",
+    trustScore: 94,
+    scamSignals: ["Never click unofficial direct messages promising quick role verification. Use official paths only."],
+    createdAt: 1717228800000,
+    bookmarksCount: 1620,
+    shelbyVerification: {
+      isVerified: true,
+      verifiedAt: 1717228800000,
+      auditReport: "Guild verification mechanics analyzed. Standard signature procedures with no private key vulnerability. Safe for ecosystem participants.",
+      score: 96
+    }
+  },
+  {
+    id: "x-farming-campaign",
+    name: "X/Twitter Social Farming Portal",
+    description: "Participate in the highly incentivized Twitter viral amplification campaign by sharing official tags and climbing the community engagement leaderboard.",
+    category: "Airdrop",
+    blockchain: "Multi-chain",
+    status: "Active",
+    reward: "Ecosystem XP Points & Token Claim",
+    steps: [
+      "Access the official Social Farming platform",
+      "Link your verified X (Twitter) profile securely via Twitter OAuth",
+      "Add the specialized project ticker and tag to your public Bio",
+      "Generate daily posts, comment replies, and interact with canonical updates",
+      "Accumulate Social XP directly tracked on the leaderboards"
+    ],
+    aiSummary: "Incentivized attention and social farming campaigns allow participants to extract massive token leverage through organic reach and community interaction without deploying capital.",
+    trustScore: 89,
+    scamSignals: ["Beware of fake mirroring websites. Make sure the OAuth redirect is from standard Twitter.com addresses."],
+    createdAt: 1717228800000,
+    bookmarksCount: 2240,
+    shelbyVerification: {
+      isVerified: true,
+      verifiedAt: 1717228800000,
+      auditReport: "Linked application APIs scanned. Uses robust official Twitter Developer APIs. Verified as clean from background clipboard or keylogging malware.",
+      score: 91
+    }
   }
 ];
 
