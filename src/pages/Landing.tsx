@@ -5,7 +5,7 @@ import { db, handleFirestoreError, OperationType } from '../firebase';
 import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
 import { Web3Project } from '../types';
 import { motion } from 'motion/react';
-import { Sparkles, Shield, Zap, Globe, ArrowRight, MessageSquare, LayoutGrid, Bookmark } from 'lucide-react';
+import { Sparkles, Shield, Zap, Globe, ArrowRight, MessageSquare, LayoutGrid, Bookmark, CheckCircle2, Trophy, Smartphone, LineChart, Compass, Bell, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { dummyProjects } from '../lib/seedData';
 
@@ -139,6 +139,254 @@ export const Landing = () => {
                 <p className="text-[11px] text-white/40 font-medium leading-relaxed uppercase tracking-wider">{feature.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Roadmap Section */}
+      <section className="py-32 border-b border-white/5 relative bg-black/30">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.03),transparent_70%)] pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
+            <div className="max-w-2xl">
+              <div className="text-[10px] font-black text-blue-500 uppercase tracking-[0.5em] mb-4">Development Timeline</div>
+              <h2 className="text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-[0.85] mb-8">
+                Ecosystem <br />
+                <span className="text-white/20">Roadmap</span>
+              </h2>
+              <p className="text-sm text-white/40 font-medium uppercase tracking-widest leading-relaxed">
+                Strategic advancement of our distributed verification network—engineered for maximum clarity and community alignment.
+              </p>
+            </div>
+            <div className="text-right">
+              <div className="text-[10px] font-black text-white/20 uppercase tracking-[0.4em] mb-2">Completion Rate</div>
+              <div className="text-3xl font-mono text-emerald-500 font-bold">25% VERIFIED</div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 border border-white/5">
+            {/* 1. Initial MVP */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="p-10 bg-[#050505] relative overflow-hidden group flex flex-col justify-between"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/10 transition-all duration-700 pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-10 h-10 rounded-sm bg-emerald-500/5 border border-emerald-500/10 flex items-center justify-center text-emerald-400">
+                    <CheckCircle2 className="w-4 h-4 animate-pulse" />
+                  </div>
+                  <span className="text-[9px] font-mono px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 uppercase tracking-widest rounded-full font-bold">
+                    ✓ Completed
+                  </span>
+                </div>
+                <h3 className="text-xs font-black text-white uppercase tracking-[0.15em] mb-3">1. Initial MVP</h3>
+                <p className="text-[11px] text-white/40 font-medium uppercase tracking-wider mb-8 leading-relaxed">
+                  Core Web3 project indexing and lookup engine deployed with full Firestore persistence, beautiful custom UI, and theme support.
+                </p>
+              </div>
+              <div className="text-[9px] text-white/20 font-bold uppercase tracking-widest font-mono">
+                Milestone 01
+              </div>
+            </motion.div>
+
+            {/* 2. Project Discovery Engine */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="p-10 bg-[#050505] relative overflow-hidden group flex flex-col justify-between"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-all duration-700 pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-10 h-10 rounded-sm bg-amber-500/5 border border-amber-500/10 flex items-center justify-center text-amber-400">
+                    <Compass className="w-4 h-4" />
+                  </div>
+                  <span className="text-[9px] font-mono px-3 py-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 uppercase tracking-widest rounded-full font-bold">
+                    🚧 In Development
+                  </span>
+                </div>
+                <h3 className="text-xs font-black text-white uppercase tracking-[0.15em] mb-3">2. Project Discovery Engine</h3>
+                <p className="text-[11px] text-white/40 font-medium uppercase tracking-wider mb-8 leading-relaxed">
+                  Advanced multi-chain protocol scanner indexing active alpha opportunities, smart-contract structures, and testnet endpoints.
+                </p>
+              </div>
+              <div className="text-[9px] text-white/20 font-bold uppercase tracking-widest font-mono">
+                Milestone 02
+              </div>
+            </motion.div>
+
+            {/* 3. AI Recommendation System */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="p-10 bg-[#050505] relative overflow-hidden group flex flex-col justify-between"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-all duration-700 pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-10 h-10 rounded-sm bg-amber-500/5 border border-amber-500/10 flex items-center justify-center text-amber-400">
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <span className="text-[9px] font-mono px-3 py-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 uppercase tracking-widest rounded-full font-bold">
+                    🚧 In Development
+                  </span>
+                </div>
+                <h3 className="text-xs font-black text-white uppercase tracking-[0.15em] mb-3">3. AI Recommendation System</h3>
+                <p className="text-[11px] text-white/40 font-medium uppercase tracking-wider mb-8 leading-relaxed">
+                  Fine-tuned models analyzing on-chain actions to serve tailored, high-relevance decentralized recommendations right to your dashboard.
+                </p>
+              </div>
+              <div className="text-[9px] text-white/20 font-bold uppercase tracking-widest font-mono">
+                Milestone 03
+              </div>
+            </motion.div>
+
+            {/* 4. Testnet Tracking Module */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="p-10 bg-[#050505] relative overflow-hidden group flex flex-col justify-between"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-all duration-700 pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-10 h-10 rounded-sm bg-amber-500/5 border border-amber-500/10 flex items-center justify-center text-amber-400">
+                    <Activity className="w-4 h-4" />
+                  </div>
+                  <span className="text-[9px] font-mono px-3 py-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 uppercase tracking-widest rounded-full font-bold">
+                    🚧 In Development
+                  </span>
+                </div>
+                <h3 className="text-xs font-black text-white uppercase tracking-[0.15em] mb-3">4. Testnet Tracking Module</h3>
+                <p className="text-[11px] text-white/40 font-medium uppercase tracking-wider mb-8 leading-relaxed">
+                  Automated tracker for faucet timers, active testnet contract engagement, transaction statuses, and complete proof-of-activity logs.
+                </p>
+              </div>
+              <div className="text-[9px] text-white/20 font-bold uppercase tracking-widest font-mono">
+                Milestone 04
+              </div>
+            </motion.div>
+
+            {/* 5. Notification System */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="p-10 bg-[#050505] relative overflow-hidden group flex flex-col justify-between"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-all duration-700 pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-10 h-10 rounded-sm bg-amber-500/5 border border-amber-500/10 flex items-center justify-center text-amber-400">
+                    <Bell className="w-4 h-4" />
+                  </div>
+                  <span className="text-[9px] font-mono px-3 py-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 uppercase tracking-widest rounded-full font-bold">
+                    🚧 In Development
+                  </span>
+                </div>
+                <h3 className="text-xs font-black text-white uppercase tracking-[0.15em] mb-3">5. Notification System</h3>
+                <p className="text-[11px] text-white/40 font-medium uppercase tracking-wider mb-8 leading-relaxed">
+                  Smart alerts via browser push, email, and telegram notify you instantly when smart contracts pass verification or launch.
+                </p>
+              </div>
+              <div className="text-[9px] text-white/20 font-bold uppercase tracking-widest font-mono">
+                Milestone 05
+              </div>
+            </motion.div>
+
+            {/* 6. Community Leaderboard */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="p-10 bg-[#050505] relative overflow-hidden group flex flex-col justify-between"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl group-hover:bg-blue-500/10 transition-all duration-700 pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-10 h-10 rounded-sm bg-blue-500/5 border border-blue-500/10 flex items-center justify-center text-blue-400">
+                    <Trophy className="w-4 h-4" />
+                  </div>
+                  <span className="text-[9px] font-mono px-3 py-1 bg-blue-500/10 border border-blue-500/20 text-blue-400 uppercase tracking-widest rounded-full font-bold">
+                    📈 Expansion Stage
+                  </span>
+                </div>
+                <h3 className="text-xs font-black text-white uppercase tracking-[0.15em] mb-3">6. Community Leaderboard</h3>
+                <p className="text-[11px] text-white/40 font-medium uppercase tracking-wider mb-8 leading-relaxed">
+                  Engage in healthy ecosystem tracking by staking your reputational metrics and competing in community index activities.
+                </p>
+              </div>
+              <div className="text-[9px] text-white/20 font-bold uppercase tracking-widest font-mono">
+                Milestone 06
+              </div>
+            </motion.div>
+
+            {/* 7. Mobile Application */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="p-10 bg-[#050505] relative overflow-hidden group flex flex-col justify-between"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-full blur-2xl group-hover:bg-purple-500/10 transition-all duration-700 pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-10 h-10 rounded-sm bg-purple-500/5 border border-purple-500/10 flex items-center justify-center text-purple-400">
+                    <Smartphone className="w-4 h-4" />
+                  </div>
+                  <span className="text-[9px] font-mono px-3 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-400 uppercase tracking-widest rounded-full font-bold">
+                    📱 Future Deployment
+                  </span>
+                </div>
+                <h3 className="text-xs font-black text-white uppercase tracking-[0.15em] mb-3">7. Mobile Application</h3>
+                <p className="text-[11px] text-white/40 font-medium uppercase tracking-wider mb-8 leading-relaxed">
+                  A high-fidelity mobile companion optimized for scanning QR-faucets, fast wallet linkage, and immediate notifications.
+                </p>
+              </div>
+              <div className="text-[9px] text-white/20 font-bold uppercase tracking-widest font-mono">
+                Milestone 07
+              </div>
+            </motion.div>
+
+            {/* 8. Advanced Analytics Dashboard */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.7 }}
+              className="p-10 bg-[#050505] relative overflow-hidden group flex flex-col justify-between lg:col-span-2"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-purple-500/5 rounded-full blur-2xl group-hover:bg-purple-500/10 transition-all duration-700 pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-10 h-10 rounded-sm bg-purple-500/5 border border-purple-500/10 flex items-center justify-center text-purple-400">
+                    <LineChart className="w-4 h-4" />
+                  </div>
+                  <span className="text-[9px] font-mono px-3 py-1 bg-purple-500/10 border border-purple-500/20 text-purple-400 uppercase tracking-widest rounded-full font-bold">
+                    📊 Future Deployment
+                  </span>
+                </div>
+                <h3 className="text-xs font-black text-white uppercase tracking-[0.15em] mb-3">8. Advanced Analytics Dashboard</h3>
+                <p className="text-[11px] text-white/40 font-medium uppercase tracking-wider mb-8 leading-relaxed">
+                  Real-time network visualizers graphing developer commit ratios, smart contract interaction trends, and verified coin transactions statistics.
+                </p>
+              </div>
+              <div className="text-[9px] text-white/20 font-bold uppercase tracking-widest font-mono">
+                Milestone 08
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
